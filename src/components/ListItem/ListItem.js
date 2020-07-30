@@ -1,15 +1,15 @@
 import React from 'react';
 import './list-item.scss'
 
-const ListItem = (props) => {
+const ListItem = ({ listItem, setDone, deleteItem }) => {
   
   return (
-    <div className={`list-item ${props.listItem.done ? 'done' : ''}`}>
-      <input value={props.listItem.done} onChange={props.setDone(props.listItem)} type="checkbox" className="done"/>
+    <div className={`list-item ${listItem.done ? 'done' : ''}`}>
+      <input value={listItem.done} onChange={setDone(listItem)} type="checkbox" className="done"/>
       <div className="description">
-        {props.listItem.description}
+        {listItem.description}
       </div>
-      <button onClick={props.deleteItem(props.listItem)} className="delete">Delete</button>
+      <button onClick={deleteItem(listItem)} className="delete">Delete</button>
     </div>
   )
 }
